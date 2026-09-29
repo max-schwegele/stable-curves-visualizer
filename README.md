@@ -303,6 +303,8 @@ The visualizer performs the second operation. The first explains the topology of
   </tr>
 </table>
 
+The two drawings above are taken directly from slides 5 and 6 of [Fuladi, de Mesmay, and Parlier, *Universal families of arcs and curves on surfaces*](https://ci.labri.fr/uploads/Groupe/2022-2023/Fuladi_22-05-2023.pdf), presented at the LaBRI Combinatorics Seminar in May 2023.
+
 A **pair of pants** is a compact sphere with the interiors of three disjoint closed discs removed; its interior is homeomorphic to the Riemann sphere with three points removed.
 
 Here $\overline{\mathcal M}_g$ denotes the Deligne--Mumford compactification of the moduli space of smooth curves of genus $g$; its boundary parametrizes stable nodal curves, as in [Deligne--Mumford](https://www.numdam.org/item/PMIHES_1969__36__75_0/). A **maximally degenerate** (or maximally nodal) stable curve represents a zero-dimensional boundary stratum of $\overline{\mathcal M}_g$. Every normalized irreducible component is a projective line and contains exactly three points above the nodes. Its dual graph therefore has weight 0 at every vertex and is 3-regular; loops and multiple edges are allowed.
@@ -350,6 +352,8 @@ $$
 For genus 3, pants decompositions up to homeomorphism correspond to the five isomorphism classes of connected 3-regular multigraphs on four vertices, with loops allowed; compare [OEIS A005967](https://oeis.org/A005967). Each decomposition contains six curves. The visualizer uses the following family of ten:
 
 ![The ten-loop universal family on a genus-3 surface](./docs/assets/readme/genus-3-loop-family.png)
+
+A visually matching ten-curve configuration also appears on the title slide of the 2023 presentation cited above, without further discussion. The family used in this visualizer was found independently.
 
 - `H1`, `H2`, `H3`: handle loops;
 - `B12`, `B13`, `B23`: loops passing through the indicated pairs of handles;
@@ -535,6 +539,7 @@ stable-curves-visualizer/
 - Max Schwegele, [*Semistable Reduction of Plane Quartics*](https://arxiv.org/abs/2511.15858), Master's thesis.
 - Raymond van Bommel, Jordan Docking, Reynald Lercier, and Elisa Lorenzo García, [*Reduction of Plane Quartics and Dixmier-Ohno Invariants*](https://arxiv.org/abs/2401.13902).
 - Niloufar Fuladi, Arnaud de Mesmay, and Hugo Parlier, [*Universal families of arcs and curves on surfaces*](https://arxiv.org/abs/2302.06336).
+- Niloufar Fuladi, Arnaud de Mesmay, and Hugo Parlier, [*Universal families of arcs and curves on surfaces*](https://ci.labri.fr/uploads/Groupe/2022-2023/Fuladi_22-05-2023.pdf), presentation slides, LaBRI Combinatorics Seminar, May 2023.
 - Qing Liu and Henri Cohen's genus-2 stable-reduction types, as documented by [SageMath `genus2reduction`](https://doc.sagemath.org/html/en/reference/arithmetic_curves/sage/interfaces/genus2reduction.html).
 
 ### Tools
