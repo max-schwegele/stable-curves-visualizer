@@ -1,0 +1,121 @@
+.type-navigator {
+  font-family: sans-serif;
+}
+
+.type-navigator__heading {
+  margin-bottom: 5px;
+  color: #aaa;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.type-navigator__genus-two-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+.type-navigator__type-button {
+  color: #fff;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  cursor: pointer;
+}
+
+.type-navigator__type-button--genus-two {
+  padding: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.type-navigator__type-button--genus-three {
+  min-width: 0;
+  padding: 6px 8px;
+  overflow: hidden;
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.type-navigator__type-button.is-current-active {
+  color: #000;
+  background: #4ade80;
+}
+
+.type-navigator__type-button.is-target-active {
+  color: #000;
+  background: #38bdf8;
+}
+
+.type-navigator__type-button.is-tour-active {
+  color: #000;
+  background: #f59e0b;
+}
+
+.type-navigator__genus-three {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.type-navigator__page-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.type-navigator__page-tab {
+  padding: 6px 2px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.type-navigator__page-tab.is-active {
+  background: #ec4899;
+}
+
+.type-navigator__section {
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.type-navigator__subgroup + .type-navigator__subgroup {
+  margin-top: 12px;
+}
+
+.type-navigator__subgroup-divider {
+  height: 1px;
+  margin: 0 0 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+}
+
+.type-navigator__subgroup-label {
+  margin-bottom: 6px;
+  color: #888;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.type-navigator__genus-three-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}

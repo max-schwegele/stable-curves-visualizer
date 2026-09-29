@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Blender Backups
+*.blend1
+*.blend2
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Windows image file caches
+*:Zone.Identifier
+
+# LaTeX intermediate files
+docs/diagram-sources/**/*.aux
+docs/diagram-sources/**/*.log
+docs/diagram-sources/**/*.out
+docs/diagram-sources/**/*.pdf
+docs/diagram-sources/**/*.synctex.gz
+
+# Generated application exports
+/reduction_g*_type_*.png
+/stable_curves_g*_tour*.webm
+/docs/assets/readme/stable_curves_g*_tour*.webm
+
+# Local refactoring and audit packages
+/stable-curves-*.zip
+/project-audit-*.txt

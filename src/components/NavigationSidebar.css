@@ -1,0 +1,89 @@
+.navigation-sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: auto;
+  max-height: calc(100vh - 40px);
+  padding-right: 8px;
+  padding-bottom: 20px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  scrollbar-width: thin;
+  transform: translateX(-320px);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    opacity 0.2s ease;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navigation-sidebar.is-mobile {
+  top: 80px;
+  bottom: 20px;
+  max-height: none;
+}
+
+.navigation-sidebar.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.navigation-sidebar__status {
+  width: 220px;
+  padding: 15px 25px;
+  color: #fff;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-align: center;
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.navigation-sidebar__status-label {
+  margin-bottom: 5px;
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.navigation-sidebar__status-value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navigation-sidebar__status-value.is-current-active {
+  color: #4ade80;
+}
+
+.navigation-sidebar__status-value.is-target-active {
+  color: #38bdf8;
+}
+
+.navigation-sidebar__status-value.is-tour-active {
+  color: #f59e0b;
+}
+
+.navigation-sidebar__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 230px;
+  padding: 20px;
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.navigation-sidebar__divider {
+  height: 1px;
+  margin: 5px 0 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+}

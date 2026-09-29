@@ -1,0 +1,1001 @@
+\documentclass[border=1mm, multi=tikzpicture]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{hobby, bbox}
+\usepackage{ifthen}
+
+% --- SETTINGS ---
+% All 42 cases available. You can enter a comma-separated list here to render multiple, or just one (e.g., 3)
+\newcommand{\CurrentModel}{3, 2n, 1nn, 0nnn, 2e, 2m, 1ne, 1nm, 0nne, 0nnm, 1ee, 1me, 1mm, 0nee, 0nme, 0nmm, 0eee, 0mee, 0mme, 0mmm, 1---0, 0---0n, 0----0, CAVE, BRAID, 0---0e, 0---0m, 1=1, 1=0n, 0n=0n, 1=0e, 1=0m, 0n=0e, 0n=0m, 0e=0e, 0m=0e, 0m=0m, Z=1, Z=0n, Z=Z, Z=0e, Z=0m}
+\newcommand{\DisplayMode}{Both}  % Values: Curve, Graph, or Both
+
+% --- HELPER COMMANDS FOR DUAL GRAPHS ---
+\newcommand{\nd}[3]{\node[shape=circle,draw=black,scale=1.0,line width=0.8pt] (#1) at (#2) {#3};}
+\newcommand{\lp}[3]{\path (#1) edge [loop,min distance=1.5cm,in=#2,out=#3,line width=0.8pt] node {} (#1);}
+\newcommand{\ed}[2]{\draw[line width=0.8pt] (#1) -- (#2);}
+% Command for curved edges
+\newcommand{\edb}[3]{\draw[line width=0.8pt] (#1) to[bend #3] (#2);} 
+
+% --- WRAPPER COMMANDS ---
+\newcommand{\HobbyCurve}[2][]{%
+  \csname curve:#2\endcsname[#1]%
+}
+\newcommand{\DualGraph}[2][]{%
+  \csname graph:#2\endcsname[#1]%
+}
+
+% ==============================================================================
+% --- CURVE DEFINITIONS ---
+% ==============================================================================
+% The following TikZ paths were automatically generated and exported using the 
+% Web-based Hobby Curve Editor. 
+% 
+% Source Code & Info: https://github.com/max-schwegele/hobby-editor
+% Live-Editor:        https://max-schwegele.github.io/hobby-editor/
+% ==============================================================================
+
+\expandafter\newcommand\csname curve:3\endcsname[1][]{%
+\begin{tikzpicture}[scale=1.5, #1]
+    \useasboundingbox (0,-0.0706) rectangle (0.8,0.0706);
+    \clip (0,-0.0706) rectangle (0.8,0.0706);
+    \draw[line width = 6] (0, 0) to (0.8, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:2n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, #1]
+    \useasboundingbox (-0.007,-0.3527) rectangle (4.007,3.3528);
+    \clip (-0.007,-0.3527) rectangle (4.007,3.3528);
+    \draw[line width = 4] (0, 0) to[curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5)}] (4, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1nn\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, xscale=0.8, #1]
+    \useasboundingbox (-0.0055,-0.1764) rectangle (8.0055,3.1764);
+    \clip (-0.0055,-0.1764) rectangle (8.0055,3.1764);
+    \draw[line width = 2] (0, 0) to[curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5) (4, 0) (6, 0.5) (7, 1.5) (6, 3) (5, 1.5) (6, 0.5)}] (8, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nnn\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, xscale=0.7, #1]
+    \useasboundingbox (-0.0014,-0.0353) rectangle (12.0014,3.0353);
+    \clip (-0.0014,-0.0353) rectangle (12.0014,3.0353);
+    \draw (0, 0) to[curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5) (4, 0) (6, 0.5) (7, 1.5) (6, 3) (5, 1.5) (6, 0.5) (8, 0) (10, 0.5) (11, 1.5) (10, 3) (9, 1.5) (10, 0.5)}] (12, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:2e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.3, #1]
+    \useasboundingbox (0,-1.1) rectangle (3.5,2.3);
+    \clip (0,-1.1) rectangle (3.5,2.3);
+    \draw[line width = 4] (0, 0) to (3.5, 0);
+    \draw[line width = 2] (1, 2.3) to (1, -1.1);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:2m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.7, #1]
+    \useasboundingbox (0,-0.5041) rectangle (1.5,1.0061);
+    \clip (0,-0.5041) rectangle (1.5,1.0061);
+    \draw[line width = 4] (0, 0) to (1.5, 0);
+    \draw (0.6, 1) to[curve through={(0.6, 0.4) (0.75, 0.3) (0.9, 0.4) (0.75, 0.55) (0.6, 0.4)}] (0.6, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1ne\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.5, #1]
+    \useasboundingbox (-0.0168,-0.5) rectangle (2.0051,1);
+    \clip (-0.0168,-0.5) rectangle (2.0051,1);
+    \draw[line width = 2] (0, 0) to[curve through={(1.2, 0.2) (1.4, 0.4) (1.2, 0.8) (1, 0.4) (1.2, 0.2)}] (2, 0);
+    \draw[line width = 2] (0.4, 1) to (0.4, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1nm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.5, #1]
+    \useasboundingbox (-0.0168,-0.5077) rectangle (2.0051,1.0072);
+    \clip (-0.0168,-0.5077) rectangle (2.0051,1.0072);
+    \draw (0.4, 1) to[curve through={(0.4, 0.5) (0.5, 0.4) (0.7, 0.5) (0.5, 0.6) (0.4, 0.5)}] (0.4, -0.5);
+    \draw[line width = 2] (0, 0) to[curve through={(1.2, 0.2) (1.4, 0.4) (1.2, 0.8) (1, 0.4) (1.2, 0.2)}] (2, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nne\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.16, #1]
+    \useasboundingbox (-1.0064,-1) rectangle (8.0009,5);
+    \clip (-1.0064,-1) rectangle (8.0009,5);
+    \draw (-1, 0) to[curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5) (4, 0) (6, 0.5) (7, 1.5) (6, 3) (5, 1.5) (6, 0.5)}] (8, 0);
+    \draw[line width = 2] (0, 5) to (0, -1);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nnm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.16, #1]
+    \useasboundingbox (-1.6,-0.7157) rectangle (8.0009,5.0239);
+    \clip (-1.6,-0.7157) rectangle (8.0009,5.0239);
+    \draw (-0.7, 5) to[curve through={(-0.7, 2.6) (-0.4, 2.3) (0.3, 2.7) (-0.4, 3) (-0.7, 2.6)}] (-0.8, -0.7);
+    \draw (-1.6, 0) to[out angle = 0, curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5) (4, 0) (6, 0.5) (7, 1.5) (6, 3) (5, 1.5) (6, 0.5)}] (8, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1ee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.5, #1]
+    \useasboundingbox (-0.0669,-0.5223) rectangle (2.0669,1.0223);
+    \clip (-0.0669,-0.5223) rectangle (2.0669,1.0223);
+    \draw[line width = 2] (0, 0) to (2, 0);
+    \draw[line width = 2] (0, 1) to (0.5, -0.5);
+    \draw[line width = 2] (2, 1) to (1.5, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1me\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.6, #1]
+    \useasboundingbox (0,-0.5048) rectangle (2,1.0071);
+    \clip (0,-0.5048) rectangle (2,1.0071);
+    \draw[line width = 2] (0, 0) to (2, 0);
+    \draw (0.6, 1) to[curve through={(0.6, 0.4) (0.75, 0.3) (0.9, 0.4) (0.75, 0.55) (0.6, 0.4)}] (0.6, -0.5);
+    \draw[line width = 2] (1.5, 1) to (1.5, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1mm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.55, #1]
+    \useasboundingbox (0,-0.6066) rectangle (2.2,1.0047);
+    \clip (0,-0.6066) rectangle (2.2,1.0047);
+    \draw[line width = 2] (0, 0) to (2.2, 0);
+    \draw (0.6, 1) to[curve through={(0.7, 0.4) (0.9, 0.3) (1, 0.4) (0.9, 0.5) (0.7, 0.4)}] (0.6, -0.6);
+    \draw (1.6, 1) to[curve through={(1.7, 0.4) (1.9, 0.3) (2, 0.4) (1.9, 0.5) (1.7, 0.4)}] (1.6, -0.6);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.45, xscale=0.8, #1]
+    \useasboundingbox (-1.0089,-0.5154) rectangle (3.0089,1.5154);
+    \clip (-1.0089,-0.5154) rectangle (3.0089,1.5154);
+    \draw (-1, 0) to[curve through={(1, 0.2) (1.2, 0.4) (1, 0.8) (0.8, 0.4) (1, 0.2)}] (3, 0);
+    \draw[line width = 2] (-0.5, 1.5) to (0, -0.5);
+    \draw[line width = 2] (2.5, 1.5) to (2, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nme\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.4, xscale=0.8, #1]
+    \useasboundingbox (-1.01,-0.5173) rectangle (3.01,1.5173);
+    \clip (-1.01,-0.5173) rectangle (3.01,1.5173);
+    \draw (-1, 0) to[curve through={(1, 0.2) (1.2, 0.4) (1, 0.8) (0.8, 0.4) (1, 0.2)}] (3, 0);
+    \draw (-0.6, 1.5) to[curve through={(-0.4, 0.75) (-0.15, 0.65) (0, 0.75) (-0.25, 1) (-0.4, 0.75)}] (0, -0.5);
+    \draw[line width = 2] (2.5, 1.5) to (2, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nmm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.4, xscale=0.8, #1]
+    \useasboundingbox (-1.01,-0.511) rectangle (3.01,1.5046);
+    \clip (-1.01,-0.511) rectangle (3.01,1.5046);
+    \draw (-1, 0) to[curve through={(1, 0.2) (1.2, 0.4) (1, 0.8) (0.8, 0.4) (1, 0.2)}] (3, 0);
+    \draw (-0.6, 1.5) to[curve through={(-0.4, 0.75) (-0.15, 0.65) (0, 0.75) (-0.25, 1) (-0.4, 0.75)}] (0, -0.5);
+    \draw (2.6, 1.5) to[curve through={(2.4, 0.75) (2.15, 0.65) (2, 0.75) (2.25, 1) (2.4, 0.75)}] (2, -0.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0eee\endcsname[1][]{%
+\begin{tikzpicture}[scale=1.2, #1]
+    \useasboundingbox (-0.0279,-0.2593) rectangle (1.0279,0.5093);
+    \clip (-0.0279,-0.2593) rectangle (1.0279,0.5093);
+    \draw (0, 0) to (1, 0);
+    \draw[line width = 2] (0, 0.5) to (0.25, -0.25);
+    \draw[line width = 2] (1, 0.5) to (0.75, -0.25);
+    \draw[line width = 2] (0.5, 0.5) to (0.5, -0.25);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0mee\endcsname[1][]{%
+\begin{tikzpicture}[scale=1.2, #1]
+    \useasboundingbox (-0.0158,-0.2593) rectangle (1.0279,0.5093);
+    \clip (-0.0158,-0.2593) rectangle (1.0279,0.5093);
+    \draw (0, 0) to (1, 0);
+    \draw (0, 0.5) to[curve through={(0.1, 0.13) (0.23, 0.07) (0.3, 0.13) (0.17, 0.25) (0.1, 0.13)}] (0.3, -0.25);
+    \draw[line width = 2] (1, 0.5) to (0.75, -0.25);
+    \draw[line width = 2] (0.5, 0.5) to (0.5, -0.25);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0mme\endcsname[1][]{%
+\begin{tikzpicture}[#1]
+    \useasboundingbox (-0.1,-0.2612) rectangle (1.0335,0.5112);
+    \clip (-0.1,-0.2612) rectangle (1.0335,0.5112);
+    \draw (-0.1, 0) to (1, 0);
+    \draw (0.1, 0.5) to[curve through={(0.1, 0.2) (0.2, 0.13) (0.3, 0.2) (0.2, 0.3) (0.1, 0.2)}] (0.1, -0.25);
+    \draw[line width = 2] (1, 0.5) to (0.75, -0.25);
+    \draw (0.5, 0.5) to[curve through={(0.5, 0.2) (0.6, 0.13) (0.7, 0.2) (0.6, 0.3) (0.5, 0.2)}] (0.5, -0.25);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0mmm\endcsname[1][]{%
+\begin{tikzpicture}[#1]
+    \useasboundingbox (-0.1,-0.2528) rectangle (1.1084,0.5039);
+    \clip (-0.1,-0.2528) rectangle (1.1084,0.5039);
+    \draw (-0.1, 0) to (1.1, 0);
+    \draw (0.1, 0.5) to[curve through={(0.1, 0.2) (0.2, 0.13) (0.3, 0.2) (0.2, 0.3) (0.1, 0.2)}] (0.1, -0.25);
+    \draw (0.5, 0.5) to[curve through={(0.5, 0.2) (0.6, 0.13) (0.7, 0.2) (0.6, 0.3) (0.5, 0.2)}] (0.5, -0.25);
+    \draw (0.9, 0.5) to[curve through={(0.9, 0.2) (1, 0.13) (1.1, 0.2) (1, 0.3) (0.9, 0.2)}] (0.9, -0.25);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1---0\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, #1]
+    \useasboundingbox (-0.1764,0.3456) rectangle (2.1764,5.6544);
+    \clip (-0.1764,0.3456) rectangle (2.1764,5.6544);
+    \draw (0, 0.5) to[curve through={(1, 1) (2, 2) (1, 3) (0, 4) (1, 5)}] (2, 5.5);
+    \draw[line width = 2] (2, 0.5) to[curve through={(1, 1) (0, 2) (1, 3) (2, 4) (1, 5)}] (0, 5.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0---0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, #1]
+    \useasboundingbox (-0.0353,-0.0224) rectangle (2.797,5.5309);
+    \clip (-0.0353,-0.0224) rectangle (2.797,5.5309);
+    \draw (0, 0.5) to[curve through={(1, 1) (2, 2) (1, 3) (0, 4) (1, 5)}] (2, 5.5);
+    \draw (2.3, 0) to[curve through={(2.1, 0.5) (2.4, 1) (2.7, 0.5) (2, 0.5) (1, 1) (0, 2) (1, 3) (2, 4) (1, 5)}] (0, 5.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0----0\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-0.5128,0.4547) rectangle (2.5128,7.5453);
+    \clip (-0.5128,0.4547) rectangle (2.5128,7.5453);
+    \draw (-0.5, 0.5) to[curve through={(1, 1) (2, 2) (1, 3) (0, 4) (1, 5) (2, 6) (1, 7)}] (-0.5, 7.5);
+    \draw (2.5, 0.5) to[curve through={(1, 1) (0, 2) (1, 3) (2, 4) (1, 5) (0, 6) (1, 7)}] (2.5, 7.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:CAVE\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-1.0085,-1) rectangle (6.007,5.047);
+    \clip (-1.0085,-1) rectangle (6.007,5.047);
+    \draw (0, 0) to[curve through={(2, 3)}] (6, 4);
+    \draw (-1, 1) to[curve through={(2, 0.5)}] (6, 0);
+    \draw (3, -1) to[out angle = 90, in angle = 90, curve through={(4, 5)}] (5, -1);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:BRAID\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.13, #1]
+    \useasboundingbox (-0.0384,-1.0347) rectangle (9.0191,5.0508);
+    \clip (-0.0384,-1.0347) rectangle (9.0191,5.0508);
+    \draw (0, 5) to (5, 0);
+    \draw (0, 4.5) to (7, 1.5);
+    \draw (1, 2) to (9, 5);
+    \draw (3, -1) to (8, 5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0---0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, #1]
+    \useasboundingbox (-0.0353,-0.0558) rectangle (3.1673,5.5309);
+    \clip (-0.0353,-0.0558) rectangle (3.1673,5.5309);
+    \draw (0, 0.5) to[curve through={(1, 1) (2, 2) (1, 3) (0, 4) (1, 5)}] (2, 5.5);
+    \draw (3, 0.5) to[curve through={(1, 1) (0, 2) (1, 3) (2, 4) (1, 5)}] (0, 5.5);
+    \draw[line width = 2] (2, 0) to (3, 3);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0---0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.18, #1]
+    \useasboundingbox (-0.0392,-0.0031) rectangle (3.54,5.5343);
+    \clip (-0.0392,-0.0031) rectangle (3.54,5.5343);
+    \draw (0, 0.5) to[curve through={(1, 1) (2, 2) (1, 3) (0, 4) (1, 5)}] (2, 5.5);
+    \draw (3, 0.5) to[curve through={(1, 1) (0, 2) (1, 3) (2, 4) (1, 5)}] (0, 5.5);
+    \draw (2, 0) to[curve through={(2.5, 1.5) (2.8, 1.75) (3.5, 1.5) (2.7, 1.25) (2.5, 1.5)}] (3, 3);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1=1\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-0.5419,0.2675) rectangle (2.5419,6.7314);
+    \clip (-0.5419,0.2675) rectangle (2.5419,6.7314);
+    \draw[line width = 2] (-0.5, 0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw[line width = 2] (2.5, 0.5) to[curve through={(0, 3)}] (2.5, 6.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1=0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-3.5279,0.2668) rectangle (3.5307,6.8757);
+    \clip (-3.5279,0.2668) rectangle (3.5307,6.8757);
+    \draw (-3.5, 6.5) to[curve through={(-1.5, 6.5) (-1.5, 5.5) (-1.5, 6.5) (1.5, 3.5)}] (-0.5, 0.5);
+    \draw[line width = 2] (2.5, 0.5) to[curve through={(0, 3)}] (3.5, 6.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0n=0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-3.5277,0.4547) rectangle (5.5277,6.9072);
+    \clip (-3.5277,0.4547) rectangle (5.5277,6.9072);
+    \draw (-3.5, 6.5) to[curve through={(-1.5, 6.5) (-1.5, 5.5) (-1.5, 6.5) (2, 3)}] (-0.5, 0.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3) (3.5, 6.5) (3.5, 5.5) (3.5, 6.5)}] (5.5, 6.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-0.5419,0.2675) rectangle (4.0123,7.5);
+    \clip (-0.5419,0.2675) rectangle (4.0123,7.5);
+    \draw[line width = 2] (-0.5, 0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw[line width = 2] (3.2, 3) to (3.2, 7.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-0.5419,0.2675) rectangle (4.047,7.5268);
+    \clip (-0.5419,0.2675) rectangle (4.047,7.5268);
+    \draw[line width = 2] (-0.5, 0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw (3.2, 7.5) to[curve through={(3.4, 4.8) (3.8, 4.6) (4, 4.8) (3.8, 5) (3.4, 4.8)}] (3.2, 3);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0n=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-3.5277,0.4534) rectangle (4.0123,7.5);
+    \clip (-3.5277,0.4534) rectangle (4.0123,7.5);
+    \draw (-3.5, 6.5) to[curve through={(-1.5, 6.5) (-1.5, 5.5) (-1.5, 6.5) (2, 3)}] (-0.5, 0.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw[line width = 2] (3.2, 3) to (3.2, 7.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0n=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-3.5277,0.4534) rectangle (4.047,7.5268);
+    \clip (-3.5277,0.4534) rectangle (4.047,7.5268);
+    \draw (-3.5, 6.5) to[curve through={(-1.5, 6.5) (-1.5, 5.5) (-1.5, 6.5) (2, 3)}] (-0.5, 0.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw (3.2, 7.5) to[curve through={(3.4, 4.8) (3.8, 4.6) (4, 4.8) (3.8, 5) (3.4, 4.8)}] (3.2, 3);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0e=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2.0123,0.4534) rectangle (4.0123,7.5);
+    \clip (-2.0123,0.4534) rectangle (4.0123,7.5);
+    \draw (-0.5, 0.5) to[curve through={(2, 3)}] (-2, 6.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw[line width = 2] (3.2, 3) to (3.2, 7.5);
+    \draw[line width = 2] (-1.2, 3) to (-1.2, 7.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0m=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2.0123,0.4534) rectangle (4.047,7.5268);
+    \clip (-2.0123,0.4534) rectangle (4.047,7.5268);
+    \draw (-0.5, 0.5) to[curve through={(2, 3)}] (-2, 6.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw (3.2, 7.5) to[curve through={(3.4, 4.8) (3.8, 4.6) (4, 4.8) (3.8, 5) (3.4, 4.8)}] (3.2, 3);
+    \draw[line width = 2] (-1.2, 7.5) to (-1.2, 3);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0m=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2.047,0.4534) rectangle (4.047,7.5366);
+    \clip (-2.047,0.4534) rectangle (4.047,7.5366);
+    \draw (-0.5, 0.5) to[curve through={(2, 3)}] (-2, 6.5);
+    \draw (2.5, 0.5) to[curve through={(0, 3)}] (4, 6.5);
+    \draw (3.2, 7.5) to[curve through={(3.4, 4.8) (3.8, 4.6) (4, 4.8) (3.8, 5) (3.4, 4.8)}] (3.2, 3);
+    \draw (-1.6, 7.5) to[curve through={(-1.4, 4.8) (-1.8, 4.6) (-2, 4.8) (-1.8, 5) (-1.4, 4.8)}] (-1.2, 3);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:Z=1\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2,-0.5445) rectangle (4,6.5445);
+    \clip (-2,-0.5445) rectangle (4,6.5445);
+    \draw (-0.5, -0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw (2.5, -0.5) to[curve through={(0, 3)}] (2.5, 6.5);
+    \draw[line width = 2] (-2, 0) to (4, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:Z=0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2.0047,-0.5445) rectangle (8.0154,6.5445);
+    \clip (-2.0047,-0.5445) rectangle (8.0154,6.5445);
+    \draw (-0.5, -0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw (2.5, -0.5) to[curve through={(0, 3)}] (2.5, 6.5);
+    \draw (-2, 0) to[curve through={(2, 0) (4, 0) (5, 0.5) (5, 2) (5, 0.5)}] (8, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:Z=Z\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-0.0322,-0.0235) rectangle (10.0322,3.0225);
+    \clip (-0.0322,-0.0235) rectangle (10.0322,3.0225);
+    \draw (0, 2) to[curve through={(3, 1)}] (6, 3);
+    \draw (4, 3) to[curve through={(7, 1)}] (10, 2);
+    \draw (0, 1) to[in angle = 120, curve through={(3, 2)}] (6, 0);
+    \draw (4, 0) to[out angle = 60, curve through={(7, 2)}] (10, 1);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:Z=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2,-0.5445) rectangle (7,6.5445);
+    \clip (-2,-0.5445) rectangle (7,6.5445);
+    \draw (-0.5, -0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw (2.5, -0.5) to[curve through={(0, 3)}] (2.5, 6.5);
+    \draw (-2, 0) to (7, 0);
+    \draw[line width = 2] (5, -0.5) to (5, 5.5);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:Z=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.15, #1]
+    \useasboundingbox (-2,-0.5445) rectangle (7,6.5445);
+    \clip (-2,-0.5445) rectangle (7,6.5445);
+    \draw (-0.5, -0.5) to[curve through={(2, 3)}] (-0.5, 6.5);
+    \draw (2.5, -0.5) to[curve through={(0, 3)}] (2.5, 6.5);
+    \draw (-2, 0) to (7, 0);
+    \draw (5, -0.5) to[curve through={(5.2, 2) (5.7, 2.5) (6.7, 2) (5.7, 1.5) (5.2, 2)}] (5, 4);
+\end{tikzpicture}%
+}
+
+% ==============================================================================
+% --- GRAPH DEFINITIONS ---
+% ==============================================================================
+
+\expandafter\newcommand\csname graph:3\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{3} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:2n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{2} 
+    \lp{A}{135}{45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1nn\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{1} 
+    \lp{A}{225}{135} 
+    \lp{A}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nnn\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{0} 
+    \lp{A}{0}{60} 
+    \lp{A}{120}{180} 
+    \lp{A}{240}{300} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:2e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{2} 
+    \nd{B}{1,0}{1} 
+    \ed{A}{B} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:2m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{1,0}{2} 
+    \nd{B}{-1,0}{0} 
+    \ed{A}{B} 
+    \lp{B}{225}{135} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1ne\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{1,0}{1} 
+    \ed{A}{B} 
+    \lp{B}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1nm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{1} 
+    \ed{A}{B} 
+    \lp{A}{225}{135} 
+    \lp{B}{-45}{45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nne\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{1,0}{0} 
+    \ed{A}{B} 
+    \lp{B}{30}{90} 
+    \lp{B}{-30}{-90} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nnm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{0} 
+    \ed{A}{B} 
+    \lp{A}{225}{135} 
+    \lp{B}{30}{90} 
+    \lp{B}{-30}{-90} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1ee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{0,0}{1} 
+    \nd{C}{1,0}{1} 
+    \ed{A}{B} 
+    \ed{B}{C} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1me\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0,0}{1} 
+    \nd{C}{1,0}{1} 
+    \ed{A}{B} 
+    \ed{B}{C} 
+    \lp{A}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1mm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0,0}{1} 
+    \nd{C}{1,0}{0} 
+    \ed{A}{B} 
+    \ed{B}{C} 
+    \lp{A}{120}{60} 
+    \lp{C}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{0,0}{0} 
+    \nd{C}{1,0}{1} 
+    \ed{A}{B} 
+    \ed{B}{C} 
+    \lp{B}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nme\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0,0}{0} 
+    \nd{C}{1,0}{1} 
+    \ed{A}{B} 
+    \ed{B}{C} 
+    \lp{A}{120}{60} 
+    \lp{B}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nmm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0,0}{0} 
+    \nd{C}{1,0}{0} 
+    \ed{A}{B} 
+    \ed{B}{C} 
+    \lp{A}{120}{60} 
+    \lp{B}{120}{60} 
+    \lp{C}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0eee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{0} 
+    \nd{B}{-1,1}{1} 
+    \nd{C}{0,1}{1} 
+    \nd{D}{1,1}{1} 
+    \ed{A}{B} 
+    \ed{A}{C} 
+    \ed{A}{D} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0mee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{0} 
+    \nd{B}{-1,1}{0} 
+    \nd{C}{0,1}{1} 
+    \nd{D}{1,1}{1} 
+    \ed{A}{B} 
+    \ed{A}{C} 
+    \ed{A}{D} 
+    \lp{B}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0mme\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{0} 
+    \nd{B}{-1,1}{0} 
+    \nd{C}{0,1}{0} 
+    \nd{D}{1,1}{1} 
+    \ed{A}{B} 
+    \ed{A}{C} 
+    \ed{A}{D} 
+    \lp{B}{120}{60} 
+    \lp{C}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0mmm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{0} 
+    \nd{B}{-1,1}{0} 
+    \nd{C}{0,1}{0} 
+    \nd{D}{1,1}{0} 
+    \ed{A}{B} 
+    \ed{A}{C} 
+    \ed{A}{D} 
+    \lp{B}{120}{60} 
+    \lp{C}{120}{60} 
+    \lp{D}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1---0\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{1,0}{0} 
+    \edb{A}{B}{left=30} 
+    \ed{A}{B} 
+    \edb{A}{B}{right=30} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0---0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{0} 
+    \edb{A}{B}{left=30} 
+    \ed{A}{B} 
+    \edb{A}{B}{right=30} 
+    \lp{B}{-45}{45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0----0\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{0} 
+    \edb{A}{B}{left=45} 
+    \edb{A}{B}{left=15} 
+    \edb{A}{B}{right=15} 
+    \edb{A}{B}{right=45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:CAVE\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-0.6,0}{0} 
+    \nd{B}{0,1.039}{0} 
+    \nd{C}{0.6,0}{0} 
+    \ed{A}{C}
+    \edb{A}{B}{left=20}
+    \edb{A}{B}{right=20}
+    \edb{C}{B}{left=20}
+    \edb{C}{B}{right=20}
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:BRAID\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{0,0}{0} 
+    \nd{B}{0,1}{0} 
+    \nd{C}{1,0}{0} 
+    \nd{D}{1,1}{0} 
+    \ed{A}{B} 
+    \ed{A}{C} 
+    \ed{A}{D} 
+    \ed{B}{D} 
+    \ed{C}{D} 
+    \draw[line width=0.8pt] (B) to[bend left=90, looseness=2] (C); 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0---0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{0} 
+    \nd{C}{2.4,0}{1} 
+    \edb{A}{B}{left=30} 
+    \ed{A}{B} 
+    \edb{A}{B}{right=30} 
+    \ed{B}{C} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0---0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{0} 
+    \nd{C}{2.4,0}{0} 
+    \edb{A}{B}{left=30} 
+    \ed{A}{B} 
+    \edb{A}{B}{right=30} 
+    \ed{B}{C} 
+    \lp{C}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1=1\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{1,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1=0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \lp{A}{225}{135} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0n=0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{1,0}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \lp{A}{225}{135} 
+    \lp{B}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{B}{C} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{1} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{B}{C} 
+    \lp{C}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0n=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \lp{A}{225}{135} 
+    \ed{B}{C} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0n=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \lp{A}{225}{135} 
+    \ed{B}{C} 
+    \lp{C}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0e=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{1} 
+    \nd{D}{-2.5,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{A}{D} 
+    \ed{B}{C} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0m=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{0} 
+    \nd{D}{-2.5,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{B}{C} 
+    \lp{C}{120}{60} 
+    \ed{A}{D} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0m=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,0}{0} 
+    \nd{B}{0.5,0}{0} 
+    \nd{C}{2,0}{0} 
+    \nd{D}{-2.5,0}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{B}{C} 
+    \lp{C}{120}{60} 
+    \ed{A}{D} 
+    \lp{D}{120}{60} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:Z=1\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,-0.7}{0} 
+    \nd{B}{-1,0.7}{0} 
+    \nd{C}{0.6,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{A}{C} 
+    \ed{B}{C} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:Z=0n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,-0.7}{0} 
+    \nd{B}{-1,0.7}{0} 
+    \nd{C}{0.6,0}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{A}{C} 
+    \ed{B}{C} 
+    \lp{C}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:Z=Z\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,-0.7}{0} 
+    \nd{B}{-1,0.7}{0} 
+    \nd{C}{1,-0.7}{0} 
+    \nd{D}{1,0.7}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \edb{C}{D}{left=30} 
+    \edb{C}{D}{right=30} 
+    \ed{A}{C} 
+    \ed{B}{D} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:Z=0e\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,-0.7}{0} 
+    \nd{B}{-1,0.7}{0} 
+    \nd{C}{0.6,0}{0} 
+    \nd{D}{2.2,0}{1} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{A}{C} 
+    \ed{B}{C} 
+    \ed{C}{D} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:Z=0m\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+    \nd{A}{-1,-0.7}{0} 
+    \nd{B}{-1,0.7}{0} 
+    \nd{C}{0.6,0}{0} 
+    \nd{D}{2.2,0}{0} 
+    \edb{A}{B}{left=30} 
+    \edb{A}{B}{right=30} 
+    \ed{A}{C} 
+    \ed{B}{C} 
+    \ed{C}{D} 
+    \lp{D}{45}{-45} 
+\end{tikzpicture}%
+}
+
+
+% ==========================================
+% --- RENDERING LOGIC ---
+% ==========================================
+\newif\ifRenderThisModel
+\newcommand{\RenderModel}[3]{%
+  \global\RenderThisModelfalse
+  \foreach \model in \CurrentModel {%
+    \ifthenelse{\equal{\model}{#1}}{\global\RenderThisModeltrue}{}%
+  }%
+  \ifRenderThisModel
+    \ifthenelse{\equal{\DisplayMode}{Curve} \OR \equal{\DisplayMode}{Both}}{#2}{}%
+    \ifthenelse{\equal{\DisplayMode}{Graph} \OR \equal{\DisplayMode}{Both}}{#3}{}%
+  \fi
+}
+
+\begin{document}
+
+% ==========================================
+% --- RENDER MODELS ---
+% ==========================================
+
+\RenderModel{3}{\HobbyCurve{3}}{\DualGraph{3}}
+\RenderModel{2n}{\HobbyCurve{2n}}{\DualGraph{2n}}
+\RenderModel{1nn}{\HobbyCurve{1nn}}{\DualGraph{1nn}}
+\RenderModel{0nnn}{\HobbyCurve{0nnn}}{\DualGraph{0nnn}}
+\RenderModel{2e}{\HobbyCurve{2e}}{\DualGraph{2e}}
+\RenderModel{2m}{\HobbyCurve{2m}}{\DualGraph{2m}}
+\RenderModel{1ne}{\HobbyCurve{1ne}}{\DualGraph{1ne}}
+\RenderModel{1nm}{\HobbyCurve{1nm}}{\DualGraph{1nm}}
+\RenderModel{0nne}{\HobbyCurve{0nne}}{\DualGraph{0nne}}
+\RenderModel{0nnm}{\HobbyCurve{0nnm}}{\DualGraph{0nnm}}
+\RenderModel{1ee}{\HobbyCurve{1ee}}{\DualGraph{1ee}}
+\RenderModel{1me}{\HobbyCurve{1me}}{\DualGraph{1me}}
+\RenderModel{1mm}{\HobbyCurve{1mm}}{\DualGraph{1mm}}
+\RenderModel{0nee}{\HobbyCurve{0nee}}{\DualGraph{0nee}}
+\RenderModel{0nme}{\HobbyCurve{0nme}}{\DualGraph{0nme}}
+\RenderModel{0nmm}{\HobbyCurve{0nmm}}{\DualGraph{0nmm}}
+\RenderModel{0eee}{\HobbyCurve{0eee}}{\DualGraph{0eee}}
+\RenderModel{0mee}{\HobbyCurve{0mee}}{\DualGraph{0mee}}
+\RenderModel{0mme}{\HobbyCurve{0mme}}{\DualGraph{0mme}}
+\RenderModel{0mmm}{\HobbyCurve{0mmm}}{\DualGraph{0mmm}}
+\RenderModel{1---0}{\HobbyCurve{1---0}}{\DualGraph{1---0}}
+\RenderModel{0---0n}{\HobbyCurve{0---0n}}{\DualGraph{0---0n}}
+\RenderModel{0----0}{\HobbyCurve{0----0}}{\DualGraph{0----0}}
+\RenderModel{CAVE}{\HobbyCurve{CAVE}}{\DualGraph{CAVE}}
+\RenderModel{BRAID}{\HobbyCurve{BRAID}}{\DualGraph{BRAID}}
+\RenderModel{0---0e}{\HobbyCurve{0---0e}}{\DualGraph{0---0e}}
+\RenderModel{0---0m}{\HobbyCurve{0---0m}}{\DualGraph{0---0m}}
+\RenderModel{1=1}{\HobbyCurve{1=1}}{\DualGraph{1=1}}
+\RenderModel{1=0n}{\HobbyCurve{1=0n}}{\DualGraph{1=0n}}
+\RenderModel{0n=0n}{\HobbyCurve{0n=0n}}{\DualGraph{0n=0n}}
+\RenderModel{1=0e}{\HobbyCurve{1=0e}}{\DualGraph{1=0e}}
+\RenderModel{1=0m}{\HobbyCurve{1=0m}}{\DualGraph{1=0m}}
+\RenderModel{0n=0e}{\HobbyCurve{0n=0e}}{\DualGraph{0n=0e}}
+\RenderModel{0n=0m}{\HobbyCurve{0n=0m}}{\DualGraph{0n=0m}}
+\RenderModel{0e=0e}{\HobbyCurve{0e=0e}}{\DualGraph{0e=0e}}
+\RenderModel{0m=0e}{\HobbyCurve{0m=0e}}{\DualGraph{0m=0e}}
+\RenderModel{0m=0m}{\HobbyCurve{0m=0m}}{\DualGraph{0m=0m}}
+\RenderModel{Z=1}{\HobbyCurve{Z=1}}{\DualGraph{Z=1}}
+\RenderModel{Z=0n}{\HobbyCurve{Z=0n}}{\DualGraph{Z=0n}}
+\RenderModel{Z=Z}{\HobbyCurve{Z=Z}}{\DualGraph{Z=Z}}
+\RenderModel{Z=0e}{\HobbyCurve{Z=0e}}{\DualGraph{Z=0e}}
+\RenderModel{Z=0m}{\HobbyCurve{Z=0m}}{\DualGraph{Z=0m}}
+
+\end{document}

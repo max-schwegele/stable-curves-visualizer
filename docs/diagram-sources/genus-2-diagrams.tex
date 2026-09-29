@@ -1,0 +1,179 @@
+\documentclass[border=1mm, multi=tikzpicture]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{hobby, bbox}
+\usepackage{ifthen}
+
+% --- SETTINGS ---
+\newcommand{\CurrentModel}{2, 1n, 0nn, 0---0, ee, me, mm} % Values: Comma-separated list
+\newcommand{\DisplayMode}{Both}  % Values: Curve, Graph, or Both
+
+% --- HELPER COMMANDS FOR DUAL GRAPHS ---
+\newcommand{\nd}[3]{\node[shape=circle,draw=black,scale=1.0,line width=0.8pt] (#1) at (#2) {#3};}
+\newcommand{\lp}[3]{\path (#1) edge [loop,min distance=1.5cm,in=#2,out=#3,line width=0.8pt] node {} (#1);}
+\newcommand{\ed}[2]{\draw[line width=0.8pt] (#1) -- (#2);}
+% Command for curved edges
+\newcommand{\edb}[3]{\draw[line width=0.8pt] (#1) to[bend #3] (#2);} 
+
+% --- WRAPPER COMMANDS ---
+\newcommand{\HobbyCurve}[2][]{%
+  \csname curve:#2\endcsname[#1]%
+}
+\newcommand{\DualGraph}[2][]{%
+  \csname graph:#2\endcsname[#1]%
+}
+
+% ==============================================================================
+% --- CURVE DEFINITIONS ---
+% ==============================================================================
+\expandafter\newcommand\csname curve:2\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.3, #1]
+  \useasboundingbox (-0.2,-0.7) rectangle (3.7,1.2);
+  \clip (-0.2,-0.7) rectangle (3.7,1.2);
+  \draw[line width = 4] (0, 0) to (3.5, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:1n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, #1]
+  \useasboundingbox (-0.2,-0.2) rectangle (4.2,3.2);
+  \clip (-0.2,-0.2) rectangle (4.2,3.2);
+  \draw[line width = 2] (0, 0) to[quick curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5)}] (4, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0nn\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.2, xscale=0.8, #1]
+  \useasboundingbox (-0.2,-0.2) rectangle (8.2,3.2);
+  \clip (-0.2,-0.2) rectangle (8.2,3.2);
+  \draw (0, 0) to[quick curve through={(2, 0.5) (3, 1.5) (2, 3) (1, 1.5) (2, 0.5) (4, 0) (6, 0.5) (7, 1.5) (6, 3) (5, 1.5) (6, 0.5)}] (8, 0);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:ee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.5, #1]
+  \useasboundingbox (-1.15,-0.4) rectangle (1.15,1.15);
+  \clip (-1.15,-0.4) rectangle (1.15,1.15);
+  \draw[line width = 2] (0.9, 0.9) to (-0.2, -0.2);
+  \draw[line width = 2] (-0.9, 0.9) to (0.2, -0.2);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:me\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.5, #1]
+  \useasboundingbox (-1.15,-0.4) rectangle (1.15,1.15);
+  \clip (-1.15,-0.4) rectangle (1.15,1.15);
+  \draw (-0.9, 0.9) to[in angle = 150, curve through={(-0.4, 0.4) (-0.2, 0.4) (-0.15, 0.65) (-0.35, 0.65) (-0.4, 0.4)}] (0.2, -0.2);
+  \draw[line width = 2] (0.9, 0.9) to (-0.2, -0.2);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:mm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.5, #1]
+  \useasboundingbox (-1.15,-0.4) rectangle (1.15,1.15);
+  \clip (-1.15,-0.4) rectangle (1.15,1.15);
+  \draw (-0.9, 0.9) to[in angle = 150, curve through={(-0.4, 0.4) (-0.2, 0.4) (-0.15, 0.65) (-0.35, 0.65) (-0.4, 0.4)}] (0.2, -0.2);
+  \draw (0.9, 0.9) to[in angle = 30, curve through={(0.4, 0.4) (0.2, 0.4) (0.15, 0.65) (0.35, 0.65) (0.4, 0.4)}] (-0.2, -0.2);
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname curve:0---0\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.17, #1]
+  \useasboundingbox (-0.2,0) rectangle (2.2,6.0);
+  \clip (-0.2,0) rectangle (2.2,6.0);
+  \draw (0, 0.5) to[curve through={(1, 1) (2, 2) (1, 3) (0, 4) (1, 5)}] (2, 5.5);
+  \draw (2, 0.5) to[curve through={(1, 1) (0, 2) (1, 3) (2, 4) (1, 5)}] (0, 5.5);
+\end{tikzpicture}%
+}
+
+% ==============================================================================
+% --- GRAPH DEFINITIONS ---
+% ==============================================================================
+\expandafter\newcommand\csname graph:2\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{0,0}{2} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:1n\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{0,0}{1} 
+  \lp{A}{135}{45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0nn\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{0,0}{0} 
+  \lp{A}{225}{135} 
+  \lp{A}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:0---0\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{-1,0}{0} 
+  \nd{B}{1,0}{0} 
+  \edb{A}{B}{left=30} 
+  \ed{A}{B} 
+  \edb{A}{B}{right=30} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:ee\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{-1,0}{1} 
+  \nd{B}{1,0}{1} 
+  \ed{A}{B} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:me\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{-1,0}{1} 
+  \nd{B}{1,0}{0} 
+  \ed{A}{B} 
+  \lp{B}{45}{-45} 
+\end{tikzpicture}%
+}
+
+\expandafter\newcommand\csname graph:mm\endcsname[1][]{%
+\begin{tikzpicture}[scale=0.8, bezier bounding box, #1] 
+  \nd{A}{-1,0}{0} 
+  \nd{B}{1,0}{0} 
+  \ed{A}{B} 
+  \lp{A}{225}{135} 
+  \lp{B}{45}{-45} 
+\end{tikzpicture}%
+}
+
+% ==========================================
+% --- RENDERING LOGIC ---
+% ==========================================
+\newif\ifRenderThisModel
+\newcommand{\RenderModel}[3]{%
+  \global\RenderThisModelfalse
+  \foreach \model in \CurrentModel {%
+    \ifthenelse{\equal{\model}{#1}}{\global\RenderThisModeltrue}{}%
+  }%
+  \ifRenderThisModel
+    \ifthenelse{\equal{\DisplayMode}{Curve} \OR \equal{\DisplayMode}{Both}}{#2}{}%
+    \ifthenelse{\equal{\DisplayMode}{Graph} \OR \equal{\DisplayMode}{Both}}{#3}{}%
+  \fi
+}
+
+\begin{document}
+
+% ==========================================
+% --- RENDER MODELS ---
+% ==========================================
+
+\RenderModel{2}{\HobbyCurve{2}}{\DualGraph{2}}
+\RenderModel{1n}{\HobbyCurve{1n}}{\DualGraph{1n}}
+\RenderModel{0nn}{\HobbyCurve{0nn}}{\DualGraph{0nn}}
+\RenderModel{0---0}{\HobbyCurve{0---0}}{\DualGraph{0---0}}
+\RenderModel{ee}{\HobbyCurve{ee}}{\DualGraph{ee}}
+\RenderModel{me}{\HobbyCurve{me}}{\DualGraph{me}}
+\RenderModel{mm}{\HobbyCurve{mm}}{\DualGraph{mm}}
+
+\end{document}
