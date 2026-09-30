@@ -353,7 +353,7 @@ For genus 3, pants decompositions up to homeomorphism correspond to the five iso
 
 ![The ten-loop universal family on a genus-3 surface](./docs/assets/readme/genus-3-loop-family.png)
 
-A visually matching ten-curve configuration also appears on the title slide of the 2023 presentation cited above, without further discussion. The family used in this visualizer was found independently.
+A visually matching ten-curve configuration appears on the title slide of the 2023 presentation cited above, without further discussion. It also appears in Figure 1.8 (p. 10) of [Niloufar Fuladi's 2023 PhD thesis, *Embedded Graphs: Crossings and Decompositions*](https://theses.hal.science/tel-04541476), whose caption states that the ten curves realize all pants-decomposition types of the closed orientable genus-3 surface, giving the upper bound $\Gamma(3)\leq 10$. The family used in this visualizer was found independently.
 
 - `H1`, `H2`, `H3`: handle loops;
 - `B12`, `B13`, `B23`: loops passing through the indicated pairs of handles;
@@ -540,6 +540,7 @@ stable-curves-visualizer/
 - Raymond van Bommel, Jordan Docking, Reynald Lercier, and Elisa Lorenzo García, [*Reduction of Plane Quartics and Dixmier-Ohno Invariants*](https://arxiv.org/abs/2401.13902).
 - Niloufar Fuladi, Arnaud de Mesmay, and Hugo Parlier, [*Universal families of arcs and curves on surfaces*](https://arxiv.org/abs/2302.06336).
 - Niloufar Fuladi, Arnaud de Mesmay, and Hugo Parlier, [*Universal families of arcs and curves on surfaces*](https://ci.labri.fr/uploads/Groupe/2022-2023/Fuladi_22-05-2023.pdf), presentation slides, LaBRI Combinatorics Seminar, May 2023.
+- Niloufar Fuladi, [*Embedded Graphs: Crossings and Decompositions*](https://theses.hal.science/tel-04541476), PhD thesis, Université Gustave Eiffel, 2023, Figure 1.8 (p. 10).
 - Qing Liu and Henri Cohen's genus-2 stable-reduction types, as documented by [SageMath `genus2reduction`](https://doc.sagemath.org/html/en/reference/arithmetic_curves/sage/interfaces/genus2reduction.html).
 
 ### Tools
